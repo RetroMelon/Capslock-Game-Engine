@@ -9,10 +9,8 @@ import com.Capslock.Engine.Controls.Keyboard.CKeyEvent;
 import com.Capslock.Engine.Math.CVector2D;
 import com.Capslock.Engine.Physics.Movable;
 import com.Capslock.Engine.Render.Camera;
-import com.Capslock.Engine.Render.Camera;
 import com.Capslock.Engine.Render.RenderTarget;
 import com.Capslock.Engine.Render.Renderable;
-import com.Capslock.Engine.Render.ThreadedCamera;
 import com.Capslock.Engine.Utility.EngineInstance;
 
 public class RenderableTestGame extends game{
@@ -104,7 +102,7 @@ public class RenderableTestGame extends game{
 
 	@Override
 	public void update() {
-		e.move(Engine.getFrameTimer().getactualframerate());
+		e.move(Engine.getFrameTimer().getRealFramerate());
 		
 		c.setViewPosition(new CVector2D(e.getPosition().getX(), e.getPosition().getY()));
 		c2.setViewPosition(randren1.getPosition().subtract(new CVector2D(35, 35)));
@@ -163,7 +161,7 @@ public class RenderableTestGame extends game{
 		
 		r.drawRenderable((Renderable) c,EarthquakeVector);
 		
-		r.getGraphics().drawString("Framerate:  "+Engine.getFrameTimer().getactualframerate(), 5, 15);
+		r.getGraphics().drawString("Framerate:  "+Engine.getFrameTimer().getRealFramerate(), 5, 15);
 		r.getGraphics().drawString("Camera velocity:  "+e.getVelocity().getString(), 5, 30);
 		
 		Engine.getScreen().drawRenderTarget(r);	

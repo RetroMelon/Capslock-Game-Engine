@@ -3,6 +3,11 @@ package com.Capslock.Engine.Net;
 import java.io.Serializable;
 
 public final class TestPacket implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2837272519292293446L;
 	
 	/*
 	 * This class exists so as to allow the Connection class to exchange test packets as a means of ensuring that their sockets are still open.

@@ -132,7 +132,7 @@ public class EverythingTestClientConnecter extends game {
 		public void run() {
 			while(Engine.getKeyboard().keyPressed(KeyEvent.VK_BACK_SPACE)){
 				deletelastchar();
-				try{Thread.sleep(200);}catch(Exception e){}
+				try{Thread.sleep(timedelay);}catch(Exception e){}
 			}	
 		}
 

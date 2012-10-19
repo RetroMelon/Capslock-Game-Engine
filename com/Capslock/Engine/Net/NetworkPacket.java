@@ -3,6 +3,11 @@ package com.Capslock.Engine.Net;
 import java.io.Serializable;
 
 public class NetworkPacket implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1057674181465102390L;
 	
 	/*
 	 * This class describes all of the packets of data which are sent between connections over the network.

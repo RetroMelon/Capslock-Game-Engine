@@ -1,6 +1,5 @@
 package com.Capslock.Engine.Utility;
 
-import com.Capslock.Engine.framerate;
 import com.Capslock.Engine.screen;
 import com.Capslock.Engine.Controls.Keyboard.KeyboardInput;
 import com.Capslock.Engine.Controls.Mouse.MouseInput;
@@ -29,7 +28,7 @@ public class EngineInstance {
 	KeyboardInput Keyboard;
 	MouseInput Mouse;
 	screen MainScreen;
-	framerate FrameTimer;
+	CTime FrameTimer;
 	
 	
 	public EngineInstance(String WindowName, int SizeX, int SizeY){
@@ -67,7 +66,7 @@ public class EngineInstance {
 	}
 	
 	private void setupFrameTimer(){
-		FrameTimer = new framerate(100);
+		FrameTimer = new CTime(100);
 	}
 	
 	private void setupScreen(){
@@ -90,7 +89,7 @@ public class EngineInstance {
 		return MainScreen;
 	}
 	
-	public framerate getFrameTimer(){
+	public CTime getFrameTimer(){
 		return FrameTimer;
 	}
 

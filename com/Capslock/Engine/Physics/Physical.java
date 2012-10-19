@@ -211,10 +211,10 @@ public abstract class Physical extends Collidable{
 	}
 	
 	public void setMass(double newMass){
-		if(newMass>=this.MASS_MIN){
+		if(newMass>=MASS_MIN){
 			Mass = newMass;
 		}else{
-			Mass = this.MASS_MIN;
+			Mass = MASS_MIN;
 		}
 	}
 	

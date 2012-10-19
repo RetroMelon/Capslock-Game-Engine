@@ -28,8 +28,10 @@ public class framerate {
 		if(desiredframerate>1000){desiredframerate=1000;}
 		else if(desiredframerate<=0){desiredframerate=100;}
 		this.desiredframerate=desiredframerate;
-		actualframerate=desiredframerate;
 		desiredframeinterval=1000/desiredframerate;
+
+		actualframerate=desiredframerate;
+		
 		lastframeelapsed=desiredframeinterval;
 		lastframetime=System.currentTimeMillis();
 	}

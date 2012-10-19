@@ -3,6 +3,11 @@ package com.Capslock.Engine.Net;
 import java.io.Serializable;
 
 public final class DisconnectPacket implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 281186022871640001L;
 	
 	/*
 	 * This class exists so as to allow the Connection class to notify the other connection when a disconnect is about to occur.
