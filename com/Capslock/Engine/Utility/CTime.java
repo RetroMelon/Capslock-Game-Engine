@@ -30,6 +30,8 @@ public class CTime {
 	/*
 	 * The actual framerate is the one passed to physical entities which gives them an indication of how far to move, and how fast to accelerate.
 	 * The actual framerate is calculated from the time taken to perform the last frame.
+	 * 
+	 * the real framerate reported is 1 frame more than the true framerate. this is so that the instance in which the framerate is 0 can never occur.
 	 */
 	protected int RealFramerate = DEFAULT_FRAMERATE;
 	
@@ -42,7 +44,7 @@ public class CTime {
 	/*
 	 * LastFrameInterval is the number of milliseconds that the last frame took to execute. this value is used to calculate the actual framerate.
 	 */
-	protected long LastFrameInterval = (int)((double)1/(double)RealFramerate);
+	protected long LastFrameInterval = (int)((double)1000/(double)RealFramerate);
 	
 	/*
 	 * LastFrameTime is the variable that keeps track of when the last frame ENDED. If the "desiredFrameInterval" has passed since the "lastFrameTime" then we should be allowed to start another frame.
@@ -97,7 +99,7 @@ public class CTime {
 			 */
 			
 			LastFrameInterval = System.currentTimeMillis() - LastFrameTime;
-			RealFramerate = (int)(1000/LastFrameInterval);
+			RealFramerate = (int)(1000/LastFrameInterval)+1;
 			
 			LastFrameTime = System.currentTimeMillis();
 			

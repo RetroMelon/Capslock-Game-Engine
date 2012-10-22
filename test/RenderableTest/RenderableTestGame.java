@@ -71,18 +71,18 @@ public class RenderableTestGame extends game{
 		
 		
 		if(this.Engine.getKeyboard().keyPressed(KeyEvent.VK_A)){
-			CVector2D newpos = new CVector2D(randren1.getPosition().getX()-(randren1speed/frametimer.getactualframerate()), randren1.getPosition().getY());
+			CVector2D newpos = new CVector2D(randren1.getPosition().getX()-(randren1speed/Engine.getFrameTimer().getRealFramerate()), randren1.getPosition().getY());
 			randren1.setPosition(newpos);
 		}else if(this.Engine.getKeyboard().keyPressed(KeyEvent.VK_D)){
-			CVector2D newpos = new CVector2D(randren1.getPosition().getX()+(randren1speed/frametimer.getactualframerate()), randren1.getPosition().getY());
+			CVector2D newpos = new CVector2D(randren1.getPosition().getX()+(randren1speed/Engine.getFrameTimer().getRealFramerate()), randren1.getPosition().getY());
 			randren1.setPosition(newpos);
 		}
 		
 		if(this.Engine.getKeyboard().keyPressed(KeyEvent.VK_W)){
-			CVector2D newpos = new CVector2D(randren1.getPosition().getX(), randren1.getPosition().getY()-(randren1speed/frametimer.getactualframerate()));
+			CVector2D newpos = new CVector2D(randren1.getPosition().getX(), randren1.getPosition().getY()-(randren1speed/frametimer.getRealFramerate()));
 			randren1.setPosition(newpos);
 		}else if(this.Engine.getKeyboard().keyPressed(KeyEvent.VK_S)){
-			CVector2D newpos = new CVector2D(randren1.getPosition().getX(), randren1.getPosition().getY()+(randren1speed/frametimer.getactualframerate()));
+			CVector2D newpos = new CVector2D(randren1.getPosition().getX(), randren1.getPosition().getY()+(randren1speed/frametimer.getRealFramerate()));
 			randren1.setPosition(newpos);
 		}
 		
@@ -102,6 +102,11 @@ public class RenderableTestGame extends game{
 
 	@Override
 	public void update() {
+		
+		try{
+			//Thread.sleep(200);
+		}catch(Exception e){}
+		
 		e.move(Engine.getFrameTimer().getRealFramerate());
 		
 		c.setViewPosition(new CVector2D(e.getPosition().getX(), e.getPosition().getY()));

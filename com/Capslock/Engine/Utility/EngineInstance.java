@@ -66,7 +66,7 @@ public class EngineInstance {
 	}
 	
 	private void setupFrameTimer(){
-		FrameTimer = new CTime(100);
+		FrameTimer = new CTime(1001);
 	}
 	
 	private void setupScreen(){

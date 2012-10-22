@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.Capslock.Engine.Utility.CTime;
 import com.Capslock.Engine.Utility.EngineInstance;
 
 public abstract class game {
@@ -30,7 +31,7 @@ public abstract class game {
 	protected EngineInstance Engine;
 	protected screen mainscreen;
 	protected int desiredframerate = 100;
-	protected framerate frametimer = new framerate(desiredframerate);
+	protected CTime frametimer;
 	protected ArrayList<entity> entities = new ArrayList<entity>();
 	protected ArrayList<entity> removelist = new ArrayList<entity>();
 	protected Random randomnumber= new Random(System.currentTimeMillis());//random numbers are always useful
@@ -53,6 +54,7 @@ public abstract class game {
 	private void setupEngine(EngineInstance e){
 		this.Engine = e;
 		this.mainscreen = e.getScreen();
+		this.frametimer = e.getFrameTimer();
 	}
 	
 	//this is the method that contains the main game loop. it calls all of the methods that are not accessible from outside
@@ -68,7 +70,7 @@ public abstract class game {
 				breakpause=false;
 				unpause();
 			}
-			else if(frametimer.checkframe()){
+			else if(frametimer.checkFrame()){
 				gameinput();
 				gameupdate();
 				gamedraw();
@@ -84,7 +86,6 @@ public abstract class game {
 		entities.clear();
 		randomnumber= new Random(System.currentTimeMillis());
 		init();//this init goes first incase we change the value of desiredframerate
-		frametimer = new framerate(desiredframerate);
 	}
 	//the init class should contain the init/clearing of variables that the user creates when they extend the game class.
 	public abstract void init();

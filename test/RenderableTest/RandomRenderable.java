@@ -70,6 +70,9 @@ public class RandomRenderable extends Collidable{
 		Target.getGraphics().setColor(Color.RED);
 		Target.getGraphics().drawString(""+this.getPosition().getX()+",  "+this.getPosition().getY(), (int)DesiredRenderPosition.getX()+5, (int)DesiredRenderPosition.getY()+10);
 
+		Target.getGraphics().setColor(Color.RED);
+		Target.getGraphics().drawString(""+children.size()+" Children", (int)DesiredRenderPosition.getX()+5, (int)DesiredRenderPosition.getY()+10+15);
+
 	}
 
 }
