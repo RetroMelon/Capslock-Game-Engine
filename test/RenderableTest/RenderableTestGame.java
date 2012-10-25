@@ -104,7 +104,7 @@ public class RenderableTestGame extends game{
 	public void update() {
 		
 		try{
-			//Thread.sleep(200);
+			//Thread.sleep(20);
 		}catch(Exception e){}
 		
 		e.move(Engine.getFrameTimer().getRealFramerate());

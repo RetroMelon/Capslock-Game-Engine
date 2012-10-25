@@ -33,7 +33,7 @@ public class CTime {
 	 * 
 	 * the real framerate reported is 1 frame more than the true framerate. this is so that the instance in which the framerate is 0 can never occur.
 	 */
-	protected int RealFramerate = DEFAULT_FRAMERATE;
+	protected float RealFramerate = DEFAULT_FRAMERATE;
 	
 	/*
 	 * The desired frame interval is the ideal number of milliseconds we wish a frame to execute for. This is calculated when the desired framerate is changed purely so as not to have to calculate it
@@ -99,7 +99,7 @@ public class CTime {
 			 */
 			
 			LastFrameInterval = System.currentTimeMillis() - LastFrameTime;
-			RealFramerate = (int)(1000/LastFrameInterval)+1;
+			RealFramerate = (1000f/(float)LastFrameInterval)+1f;
 			
 			LastFrameTime = System.currentTimeMillis();
 			
@@ -141,7 +141,7 @@ public class CTime {
 		return Paused;
 	}
 	
-	public int getRealFramerate(){
+	public float getRealFramerate(){
 		return RealFramerate;
 	}
 	

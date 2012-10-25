@@ -114,14 +114,14 @@ public abstract class Physical extends Collidable{
 	 *
 	 */
 	
-	public void move(int framerate){
+	public void move(float framerate){
 		applyForces(framerate);
 		applyAcceleration(framerate);
 		applyFriction(framerate);
 		applyVelocity(framerate);
 	}
 	
-	protected void applyForces(int framerate){
+	protected void applyForces(float framerate){
 		/*
 		 * This method applies any forces present to the object.
 		 * This method differs from the "applyForce" method.
@@ -133,14 +133,14 @@ public abstract class Physical extends Collidable{
 		Force = new CVector2D(0, 0);
 	}
 	
-	protected void applyAcceleration(int framerate){
+	protected void applyAcceleration(float framerate){
 		/*
 		 * This method applies the current acceleration of the object to the velocity.
 		 */
 		Velocity = Velocity.add(Acceleration.scalarMultiply((double)1/(double)framerate));
 	}
 	
-	protected void applyFriction(int framerate){
+	protected void applyFriction(float framerate){
 		/*
 		 * This method applies friction to the velocity on the x and y axes independently.
 		 * for details on the implementation and method behind this method, consult the comments regarding the "friction" variable.
@@ -150,7 +150,7 @@ public abstract class Physical extends Collidable{
 		Velocity.setY(Velocity.getY() - (Velocity.getY() * ((Friction.getY()/100)/(double)framerate)));
 	}
 	
-	protected void applyVelocity(int framerate){
+	protected void applyVelocity(float framerate){
 		Position = Position.add(Velocity.scalarMultiply((double)1/(double)framerate));
 	}
 	
